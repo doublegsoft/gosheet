@@ -5,10 +5,10 @@ import Resizer from './resizer';
 import Selector from './selector';
 import Overlayer from './overlayer';
 import Editor from './editor';
-import TableRenderer, { Style, ColHeader, RowHeader, Range, Rect, Border, Formatter, Gridline, ViewportCell } from '@wolf-table/table-renderer';
+import TableRenderer, { Style, ColHeader, RowHeader, Range, Rect, Border, Formatter, Gridline, ViewportCell } from './renderer';
 import { TableData, Cells, FormulaParser, DataCell, DataRow, DataCol, DataCellValue } from './data';
 import { EventEmitter } from './event';
-export declare type TableRendererOptions = {
+export type TableRendererOptions = {
     style?: Partial<Style>;
     headerStyle?: Partial<Style>;
     rowHeader?: Partial<RowHeader>;
@@ -17,13 +17,13 @@ export declare type TableRendererOptions = {
     headerGridline?: Partial<Gridline>;
     freeGridline?: Partial<Gridline>;
 };
-export declare type TableDataOptions = {
+export type TableDataOptions = {
     rows?: number;
     cols?: number;
     rowHeight?: number;
     colWidth?: number;
 };
-export declare type TableOptions = {
+export type TableOptions = {
     minRowHeight?: number;
     minColWidth?: number;
     scrollable?: boolean;
@@ -34,8 +34,8 @@ export declare type TableOptions = {
     data?: TableDataOptions;
     renderer?: TableRendererOptions;
 };
-export declare type MoveDirection = 'up' | 'down' | 'left' | 'right';
-export declare type EventName = 'click';
+export type MoveDirection = 'up' | 'down' | 'left' | 'right';
+export type EventName = 'click';
 export default class Table {
     _rendererOptions: TableRendererOptions;
     _copyable: boolean;

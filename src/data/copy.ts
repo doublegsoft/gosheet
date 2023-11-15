@@ -1,4 +1,4 @@
-import { Range, expr2expr } from '@wolf-table/table-renderer';
+import { Range, expr2expr } from '../renderer';
 import { Cells, TableData, addStyle, IndexDataCell, cellValueString } from '.';
 
 export type CopyData = { range: Range; cells: Cells; data: TableData };

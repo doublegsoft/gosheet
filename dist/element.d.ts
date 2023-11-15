@@ -1,4 +1,4 @@
-export declare type CSSAttrs = {
+export type CSSAttrs = {
     left?: number;
     top?: number;
     width?: number;

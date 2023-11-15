@@ -1,5 +1,5 @@
 import Table, { MoveDirection } from '.';
-import { Range } from '@wolf-table/table-renderer';
+import { Range } from './renderer';
 import { DataCell } from './data';
 import Selector from './selector';
 declare function init(t: Table): void;

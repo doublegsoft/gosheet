@@ -1,4 +1,4 @@
-import { expr2xy } from '@wolf-table/table-renderer';
+import { expr2xy } from '../renderer';
 import { col, row, TableData } from '.';
 
 function scrollTo(

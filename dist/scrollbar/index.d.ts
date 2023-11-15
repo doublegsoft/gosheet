@@ -1,5 +1,5 @@
 import HElement from '../element';
-export declare type ScrollbarChanger = ((direction: '+' | '-', value: number, event: Event) => void) | null;
+export type ScrollbarChanger = ((direction: '+' | '-', value: number, event: Event) => void) | null;
 export default class Scrollbar {
     _: HElement;
     _content: HElement;

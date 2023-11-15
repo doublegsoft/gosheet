@@ -1,4 +1,4 @@
-import { Range, Rect } from '@wolf-table/table-renderer';
+import { Range, Rect } from '../renderer';
 import HElement from '../element';
 declare class SelectArea {
     _: HElement;
@@ -17,7 +17,7 @@ declare class SelectArea {
     show(): this;
     clear(): void;
 }
-declare type Placement = 'all' | 'row-header' | 'col-header' | 'body';
+type Placement = 'all' | 'row-header' | 'col-header' | 'body';
 export default class Selector {
     _placement: Placement;
     _editable: boolean;

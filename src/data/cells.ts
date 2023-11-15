@@ -1,4 +1,4 @@
-import { Formatter } from '@wolf-table/table-renderer';
+import { Formatter } from '../renderer';
 import {
   IndexDataCell,
   DataCell,

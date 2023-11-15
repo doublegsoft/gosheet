@@ -1,6 +1,6 @@
 import HElement, { h } from '../element';
 import { borderWidth } from '../config';
-import { Rect } from '@wolf-table/table-renderer';
+import { Rect } from '../renderer';
 import { DataCell } from '../data';
 
 type MoveDirection = 'up' | 'down' | 'left' | 'right' | 'none';

@@ -1,6 +1,6 @@
-import { AreaCell } from '@wolf-table/table-renderer';
+import { AreaCell } from '../renderer';
 import HElement from '../element';
-export declare type ResizerType = 'row' | 'col';
+export type ResizerType = 'row' | 'col';
 export default class Resizer {
     _: HElement;
     _hover: HElement;

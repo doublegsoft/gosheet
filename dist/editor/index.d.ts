@@ -1,9 +1,9 @@
 import HElement from '../element';
-import { Rect } from '@wolf-table/table-renderer';
+import { Rect } from '../renderer';
 import { DataCell } from '../data';
-declare type MoveDirection = 'up' | 'down' | 'left' | 'right' | 'none';
-declare type MoveChanger = (direction: MoveDirection) => void;
-declare type Changer = (value: DataCell) => void;
+type MoveDirection = 'up' | 'down' | 'left' | 'right' | 'none';
+type MoveChanger = (direction: MoveDirection) => void;
+type Changer = (value: DataCell) => void;
 /**
  * new -> cellIndex -> rect -> target -> hide
  */

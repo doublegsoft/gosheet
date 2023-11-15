@@ -1,8 +1,8 @@
 {
-  "name": "@wolf-table/table",
+  "name": "gosheet",
   "version": "0.0.1",
   "description": "a web-based(canvas) javascript table",
-  "main": "dist/table.min.js",
+  "main": "dist/gosheet.min.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "./node_modules/.bin/webpack serve --config build/webpack.dev.js",
@@ -47,8 +47,5 @@
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.7.3",
     "webpack-merge": "^5.8.0"
-  },
-  "dependencies": {
-    "@wolf-table/table-renderer": "^0.0.1"
   }
 }

@@ -1,5 +1,5 @@
 import { TableData } from '.';
-import { Style } from '@wolf-table/table-renderer';
+import { Style } from '../renderer';
 import { equals } from '../helper';
 
 export function addStyle(t: TableData, value: Partial<Style>): number {

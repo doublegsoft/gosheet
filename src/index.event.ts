@@ -1,5 +1,5 @@
 import Table from '.';
-import { Range } from '@wolf-table/table-renderer';
+import { Range } from './renderer';
 import { DataCellValue } from './data';
 import selector from './index.selector';
 import editor from './index.editor';

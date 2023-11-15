@@ -1,11 +1,11 @@
-import { Range } from '@wolf-table/table-renderer';
+import { Range } from '../renderer';
 import { Cells, TableData } from '.';
-export declare type CopyData = {
+export type CopyData = {
     range: Range;
     cells: Cells;
     data: TableData;
 };
-export declare type CopyCells = {
+export type CopyCells = {
     range: Range;
     cells: Cells;
     data: TableData;
