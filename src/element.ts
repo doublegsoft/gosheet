@@ -27,7 +27,10 @@ export default class HElement {
       tag instanceof Node ? <HTMLElement>tag : document.createElement(tag);
     if (className) {
       if (typeof className === 'string') {
-        this._.className = className;
+        // this._.className = className;
+        let names = className.split(' ');
+        for (let i = 0; i < names.length; i++)
+          this._.classList.add(names[i]);
       } else if (Array.isArray(className)) {
         this._.className = className.join(' ');
       } else {

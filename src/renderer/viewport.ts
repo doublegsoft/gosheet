@@ -206,13 +206,13 @@ export default class Viewport {
     if (x < a2.x) {
       return {
         placement: 'row-header',
-        ...(ha23.containsy(y) ? ha23 : ha3).cellAt(x, y),
+        ...(ha23.containsY(y) ? ha23 : ha3).cellAt(x, y),
       };
     }
     if (y < a2.y) {
       return {
         placement: 'col-header',
-        ...(ha21.containsx(x) ? ha21 : ha1).cellAt(x, y),
+        ...(ha21.containsX(x) ? ha21 : ha1).cellAt(x, y),
       };
     }
     for (let a of this.areas) {

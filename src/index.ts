@@ -91,7 +91,7 @@ export type MoveDirection = 'up' | 'down' | 'left' | 'right';
 
 export type EventName = 'click';
 
-export default class Table {
+export default class Spreadsheet {
   // renderer options
   _rendererOptions: TableRendererOptions = {};
 
@@ -244,9 +244,9 @@ export default class Table {
     return false;
   }
 
-  merge(): Table;
+  merge(): Spreadsheet;
   // ref: A1 | A1:B10
-  merge(ref: string): Table;
+  merge(ref: string): Spreadsheet;
   merge(ref?: string) {
     if (ref) merge(this._data, ref);
     else {
@@ -258,9 +258,9 @@ export default class Table {
     return this;
   }
 
-  unmerge(): Table;
+  unmerge(): Spreadsheet;
   // ref: A1 | A1:B10
-  unmerge(ref: string): Table;
+  unmerge(ref: string): Spreadsheet;
   unmerge(ref?: string) {
     if (ref) unmerge(this._data, ref);
     else {
@@ -273,7 +273,7 @@ export default class Table {
   }
 
   row(index: number): DataRow;
-  row(index: number, value: Partial<DataRow>): Table;
+  row(index: number, value: Partial<DataRow>): Spreadsheet;
   row(index: number, value?: Partial<DataRow>): any {
     if (value) {
       if (value.height) {
@@ -286,7 +286,7 @@ export default class Table {
   }
 
   rowHeight(index: number): number;
-  rowHeight(index: number, value: number): Table;
+  rowHeight(index: number, value: number): Spreadsheet;
   rowHeight(index: number, value?: number): any {
     const oldValue = rowHeight(this._data, index);
     if (value) {
@@ -308,7 +308,7 @@ export default class Table {
   }
 
   col(index: number): DataCol;
-  col(index: number, value: Partial<DataCol>): Table;
+  col(index: number, value: Partial<DataCol>): Spreadsheet;
   col(index: number, value?: Partial<DataCol>): any {
     if (value) {
       if (value.width) {
@@ -321,7 +321,7 @@ export default class Table {
   }
 
   colWidth(index: number): number;
-  colWidth(index: number, value: number): Table;
+  colWidth(index: number, value: number): Spreadsheet;
   colWidth(index: number, value?: number): any {
     const oldValue = colWidth(this._data, index);
     if (value) {
@@ -381,7 +381,7 @@ export default class Table {
   }
 
   cell(row: number, col: number): DataCell;
-  cell(row: number, col: number, value: DataCell): Table;
+  cell(row: number, col: number, value: DataCell): Spreadsheet;
   cell(row: number, col: number, value?: DataCell): any {
     const { _cells } = this;
     if (value) {
@@ -438,7 +438,7 @@ export default class Table {
   }
 
   data(): TableData;
-  data(data: Partial<TableData>): Table;
+  data(data: Partial<TableData>): Spreadsheet;
   data(data?: any): any {
     if (data) {
       Object.assign(this._data, data);
@@ -455,16 +455,16 @@ export default class Table {
    * @param to
    * @param autofill
    */
-  copy(to: string | Range | Table | null, autofill = false) {
+  copy(to: string | Range | Spreadsheet | null, autofill = false) {
     if (!to) return this;
-    const toCopyData = (range: string | Range, t: Table) => {
+    const toCopyData = (range: string | Range, t: Spreadsheet) => {
       return {
         range: typeof range === 'string' ? Range.with(range) : range,
         cells: t._cells,
         data: t._data,
       };
     };
-    const toCopyData1 = (t: Table): CopyData | null => {
+    const toCopyData1 = (t: Spreadsheet): CopyData | null => {
       const { _selector } = t;
       if (!_selector) return null;
       const range = _selector.currentRange;
@@ -474,7 +474,7 @@ export default class Table {
 
     copy(
       toCopyData1(this),
-      to instanceof Table ? toCopyData1(to) : toCopyData(to, this),
+      to instanceof Spreadsheet ? toCopyData1(to) : toCopyData(to, this),
       autofill
     );
     return this;
@@ -484,11 +484,11 @@ export default class Table {
    * @param html <table><tr><td style="color: white">test</td></tr></table>
    * @param to A1 or B9
    */
-  fill(html: string): Table;
-  fill(html: string, to: string): Table;
-  fill(arrays: DataCellValue[][]): Table;
-  fill(arrays: DataCellValue[][], to: string): Table;
-  fill(data: any, to?: string): Table {
+  fill(html: string): Spreadsheet;
+  fill(html: string, to: string): Spreadsheet;
+  fill(arrays: DataCellValue[][]): Spreadsheet;
+  fill(arrays: DataCellValue[][], to: string): Spreadsheet;
+  fill(data: any, to?: string): Spreadsheet {
     const { _selector } = this;
     let [startRow, startCol] = [0, 0];
     if (to) {
@@ -557,12 +557,12 @@ export default class Table {
     width: () => number,
     height: () => number,
     options?: TableOptions
-  ): Table {
-    return new Table(element, width, height, options);
+  ): Spreadsheet {
+    return new Spreadsheet(element, width, height, options);
   }
 }
 
-function resizeContentRect(t: Table) {
+function resizeContentRect(t: Spreadsheet) {
   t._contentRect = {
     x: t._renderer._rowHeader.width,
     y: t._renderer._colHeader.height,
@@ -573,11 +573,11 @@ function resizeContentRect(t: Table) {
 
 declare global {
   interface Window {
-    wolf: any;
+    gosheet: any;
   }
 }
 
 if (window) {
-  window.wolf ||= {};
-  window.wolf.table = Table.create;
+  window.gosheet = window.gosheet || {};
+  window.gosheet.spreadsheet = Spreadsheet.create;
 }

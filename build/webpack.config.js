@@ -4,7 +4,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   entry: {
-    table: './src/index.ts',
+    gosheet: './src/index.ts',
   },
   plugins: [
     new MiniCssExtractPlugin({

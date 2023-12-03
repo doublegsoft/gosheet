@@ -15,7 +15,7 @@ import Canvas from './canvas';
 // align: left | center | right
 // width: the width of cell
 // padding: the padding of cell
-function textx(align: Align, width: number, padding: number) {
+function textX(align: Align, width: number, padding: number) {
   switch (align) {
     case 'left':
       return padding;
@@ -32,7 +32,7 @@ function textx(align: Align, width: number, padding: number) {
 // height: the height of cell
 // txtHeight: the height of text
 // padding: the padding of cell
-function texty(
+function textY(
   align: VerticalAlign,
   height: number,
   txtHeight: number,
@@ -227,7 +227,7 @@ export function cellRender(
       });
 
     const [xp, yp] = padding || [5, 5];
-    const tx = textx(align, rect.width, xp);
+    const tx = textX(align, rect.width, xp);
     const txts = text.split('\n');
     const innerWidth = rect.width - xp * 2;
     const ntxts: string[] = [];
@@ -256,7 +256,7 @@ export function cellRender(
     const lineTypes: TextLineType[] = [];
     if (underline) lineTypes.push('underline');
     if (strikethrough) lineTypes.push('strikethrough');
-    let ty = texty(valign, rect.height, txtHeight, fontHeight, yp);
+    let ty = textY(valign, rect.height, txtHeight, fontHeight, yp);
     ntxts.forEach((it) => {
       const txtWidth = canvas.measureTextWidth(it);
       canvas.fillText(it, tx, ty);

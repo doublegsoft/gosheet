@@ -38,7 +38,7 @@ export default class Area {
    * check whether or not x contained in area
    * @param {int} x offset on x-axis
    */
-  containsx(x: number) {
+  containsX(x: number) {
     return x >= this.x && x < this.x + this.width;
   }
 
@@ -46,12 +46,12 @@ export default class Area {
    * check whether or not y contained in area
    * @param {int} y offset on y-axis
    */
-  containsy(y: number) {
+  containsY(y: number) {
     return y >= this.y && y < this.y + this.height;
   }
 
   contains(x: number, y: number) {
-    return this.containsx(x) && this.containsy(y);
+    return this.containsX(x) && this.containsY(y);
   }
 
   eachRow(cb: (index: number, y: number, height: number) => void) {

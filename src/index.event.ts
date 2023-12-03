@@ -214,7 +214,7 @@ function toArraysFromClipboardText(text: string) {
   let doubleQuotedTimesInStr = 0;
 
   const addStr = () => {
-    arrays[rIndex] ||= [];
+    arrays[rIndex] = arrays[rIndex] || [];
     arrays[rIndex][cIndex] = str;
     str = '';
   };
